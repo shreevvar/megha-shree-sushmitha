@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img{
+            padding-center:200px;
+            width:500px;
+        }
+        #ab{
+             height: 400px;
+             width: 400px;
+             border-radius:10px;
+           
+        }
+        #ac{
+            margin-top: 20px ;
+            width: 100px;
+            height: 25px;
+            background-color: grey;
+            border-radius: 5px;
+        }
+        #ac:hover{
+            background-color:antiquewhite;
+        }
+        #ad{
+            margin-top:-200px ;
+            width: 100px;
+            height: 25px;
+            background-color:greenyellow;
+            border-radius: 5px;
+        }
+        #ad:hover{
+                background-color:green;
+        }
+        
+    </style>
+</head>
+<body>
+    <center>
+<img src="pu.jpg" height="50%" width="50%" id="ab"><br><br>
+
+<a href="payment.html" button id="ad"onclick="msg()">Place order</button></a> 
+<button id="ac" href="soupmain.html" onclick="msg()">Back</button> 
+<button href="cart1.html" onclick="msg1()">cart</button>
+</body>
+<script>
+    function msg()
+    {
+        window.location.href="soupmain.html";
+    }
+</script>
+<script>
+    function mss()
+    {
+        window.location.href="soupmain.html";
+    }
+</script>
+<script>
+    function msg1()
+    {
+        window.location.href="cart1.html";
+    }
+</script>
+</html>

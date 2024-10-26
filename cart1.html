@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+</head>
+<style>
+ 
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+            background-color:#E5D9F2;
+            color:white;
+            font-size: 20px;
+            font-weight: 200;
+            text-align:center;
+            
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr ;
+        grid-gap:50px;
+        padding: 10px;
+        margin: 0;
+       
+    }
+
+    .grid-item{
+        background-color: black;
+        color: white;
+        border-radius:200px;
+        border:2px solid white;
+        margin-left: 60px;
+        border: 1px solid white;
+        padding: 0;
+    }
+    
+    button{
+        border-radius: 100px;
+        background-color: green;
+        color: white;
+        padding: 10px;
+    }
+
+
+
+    .cart-items {
+            margin-top: 20px;
+            
+        }
+        .cart-item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color:white;
+        }
+        .cart-item button {
+            margin-left: 10px;
+        }
+        .checkout-form {
+            margin-top: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color:black;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+            width: 100%;
+        }
+        #cartStatus {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    
+</style>
+<body>
+           <h1 font-size="60px" font-align="center" font-family="Gill Sans", "Gill Sans MT","Calibri", "Trebuchet MS", sans-serif> 
+                <u style="color:black"> TASTY FOOD</u> 
+            </h1><br>           
+            <br><br>
+        <div class="grid-container">
+                <button onclick="addToCart('Item 1', 10)">Add IDLI - Rs.50/-</button>
+                <button onclick="addToCart('Item 2', 15)">Add Dosa - Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add puri - Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add upma- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Palav- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Friderice- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Veg biriyani- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Dalkichadi- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Masoor- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Methi- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Chana- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Pumkin- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Alu parota- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Gobi parota- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Chocolate cake- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Redrelevant- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Fruit cake- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Chees cake- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Cauliflower- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Butternut Squash- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Bitter Gourd- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Brinjal- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Tomato soup- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add sweetcorn soup- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Palak soup- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Hot and sour- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add Onion pakoda- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add mirchi- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add samosa- Rs.50/-</button>
+                <button onclick="addToCart('Item 3', 20)">Add panipuri- Rs.50/-</button>
+
+               
+            </div>
+
+
+
+
+
+
+            <div>
+                
+
+            </div>
+        
+            <div id="cartStatus">
+                <span id="cartItemCount">0</span> items in cart - Total: $<span id="cartTotalPrice">0</span>
+                <button onclick="openCart()">View Cart</button>
+            </div>
+        
+            <div id="cartModal" class="modal">
+                <div class="modal-content">
+                    <h2>Your Cart</h2>
+                    <ul id="cartList"></ul>
+                    <p>Total: $<span id="totalPrice">0</span></p>
+                    <button onclick="clearCart()">Clear Cart</button>
+                    <button onclick="closeCart()">Close</button>
+                    <button><a href="payment.html"onclick="openOrder()">Next</a></button>
+                </div>
+            </div>
+        
+        
+
+            <script>
+
+                function openOrder(){
+                    location.href="Order.html";
+                }
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+                function addToCart(name, price) {
+                    const existingItemIndex = cart.findIndex(item => item.name === name);
+                    if (existingItemIndex > -1) {
+                        cart[existingItemIndex].quantity++;
+                    } else {
+                        cart.push({ name, price, quantity: 1 });
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    showCartStatus();
+                    renderCart();
+                }
+        
+                function renderCart() {
+                    const cartList = document.getElementById('cartList');
+                    const totalPriceElement = document.getElementById('totalPrice');
+                    const cartItemCount = document.getElementById('cartItemCount');
+                    const cartTotalPrice = document.getElementById('cartTotalPrice');
+        
+                    cartList.innerHTML = '';
+                    let total = 0;
+                    let itemCount = 0;
+        
+                    cart.forEach((item, index) => {
+                        const li = document.createElement('li');
+                        li.className = 'cart-item';
+                        li.innerHTML = `
+                            ${item.name} - $${item.price} x ${item.quantity} 
+                            <button onclick="removeFromCart(${index})">Remove</button>
+                            <button onclick="updateQuantity(${index}, 1)">+</button>
+                            <button onclick="updateQuantity(${index}, -1)">-</button>
+                        `;
+                        cartList.appendChild(li);
+                        total += item.price * item.quantity;
+                        itemCount += item.quantity;
+                    });
+        
+                    totalPriceElement.textContent = total;
+                    cartItemCount.textContent = itemCount;
+                    cartTotalPrice.textContent = total;
+                }
+        
+                function removeFromCart(index) {
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                    showCartStatus();
+                }
+        
+                function updateQuantity(index, change) {
+                    cart[index].quantity += change;
+                    if (cart[index].quantity <= 0) {
+                        removeFromCart(index);
+                    } else {
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        renderCart();
+                        showCartStatus();
+                    }
+                }
+        
+                function clearCart() {
+                    cart = [];
+                    localStorage.removeItem('cart');
+                    renderCart();
+                    closeCart();
+                    showCartStatus();
+                }
+        
+                function showCartStatus() {
+                    const cartStatus = document.getElementById('cartStatus');
+                    const itemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+                    cartStatus.style.display = itemCount > 0 ? 'block' : 'none';
+                }
+        
+                function openCart() {
+                    const cartModal = document.getElementById('cartModal');
+                    cartModal.style.display = 'flex';
+                    renderCart();
+                }
+        
+                function closeCart() {
+                    const cartModal = document.getElementById('cartModal');
+                    cartModal.style.display = 'none';
+                }
+
+            
+        
+                document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+        
+                    if (cart.length === 0) {
+                        alert('Your cart is empty.');
+                        return;
+                    }
+        
+                    if (!name || !email) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+        
+                    
+                   
+                });
+        
+                renderCart();
+                showCartStatus();
+            </script> 
+            <button> <a href="food.html" button type="submit" onclick="msg()">BACK</a></button>       
+
+                
+
+        
+</body>
+</html>

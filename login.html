@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="qwe.png" type="image/png"><title>Food Kitchen</title>
+<style>
+    body{
+        background-image: url(sese.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        
+    }
+    h1{
+        color: white;
+    }
+    #log{
+        
+        background: transparent;
+        width: 150px;
+        height:35px;
+        padding: 5px;
+        color: white;
+        border-radius: 5px;
+    }
+    #log:hover{
+        background-color: grey;
+       color: white;
+        text-decoration:underline;
+    }
+    #mobile{
+        height: 35px;
+        width: 200px;
+        background: transparent;
+        border-radius: 3px;
+        border-color: black;
+        color: white;
+        border-radius: 5px;
+
+    }
+    #mobile:hover{
+        
+        background-color: grey
+            
+    }
+    #email{
+        height: 35px;
+        width: 200px;
+        background: transparent;
+        border-radius: 3px;
+        border-color: black;
+        border-radius: 5px;
+
+    }
+    #email:hover{
+        
+        background-color: grey
+    }   
+    #password{
+        height: 35px;
+        width: 200px;
+        background: transparent;
+        border-radius: 3px;
+        border-color: black;
+
+    }
+    #password:hover{
+        
+        background-color: grey
+    }
+    #ab{
+        font-size: 50px;
+        margin-top: 10%;
+        
+    }
+    body{
+        display: flex;
+        justify-content: center;
+    }
+
+    div{
+        width: 250px;
+        height: 350px;
+        border: 2px solid gray;
+        padding: 50px;
+        margin: 100px;
+    }
+    
+</style>
+</head>
+
+<body>
+    <div class="log">
+     <center>
+   
+        <h1 id="ab"><u>Login </u> </h1>
+        <input type="tel" id="mobile" placeholder="MOBILE NUMBER" pattern="[0-9]{10}" required><br><br>
+        <input type="email" id="email" placeholder="EMAIL ID"><br><br>
+        <input type="password" id="password" placeholder="PASSWORD"><br><br>
+        
+        
+       <a href="slide.html"> <button type="submit" value="LOGIN" id="log" onclick="alert('Login succesfully!')">Submit</button></a>
+    
+    </center>
+    </div>
+</body>
+</html>
